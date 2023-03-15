@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mt-5 mx-5">write the imagination</h1>
+<form  method="post" class="mx-5">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input">
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+<br>
+{% if object %}
+<div class="mx-5">
+    <h3>{{ object.phrase }}</h3>
+    <br>
+    <img src="{{object.ai_image.url}}" alt="{{object.phrase}}">
+</div>
+{% endif %}
+{% endblock content %}
